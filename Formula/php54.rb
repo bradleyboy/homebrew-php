@@ -24,7 +24,6 @@ class Php54 < Formula
   depends_on 'libxml2'
   depends_on 'mcrypt'
   depends_on 'unixodbc' if ARGV.include? '--with-unixodbc'
-  depends_on 'zlib'
 
   # Sanity Checks
   if ARGV.include? '--with-mysql' and ARGV.include? '--with-mariadb'
@@ -108,7 +107,7 @@ class Php54 < Formula
       "--enable-bcmath",
       "--enable-calendar",
       "--with-openssl=/usr",
-      "--with-zlib=#{Formula.factory('zlib').prefix}",
+      "--with-zlib=/usr",
       "--with-bz2=/usr",
       "--with-ldap",
       "--with-ldap-sasl=/usr",
