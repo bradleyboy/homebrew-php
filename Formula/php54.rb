@@ -24,6 +24,7 @@ class Php54 < Formula
   depends_on 'libxml2'
   depends_on 'mcrypt'
   depends_on 'unixodbc' if ARGV.include? '--with-unixodbc'
+  depends_on 'zlib'
 
   # Sanity Checks
   if ARGV.include? '--with-mysql' and ARGV.include? '--with-mariadb'
@@ -47,7 +48,7 @@ class Php54 < Formula
   end
 
   if ARGV.include? '--with-suhosin'
-    raise "Cannot build PHP 5.4.3 with Suhosin at this time"
+    raise "Cannot build PHP 5.4.4 with Suhosin at this time"
   end
 
   def options
@@ -107,7 +108,7 @@ class Php54 < Formula
       "--enable-bcmath",
       "--enable-calendar",
       "--with-openssl=/usr",
-      "--with-zlib=/usr",
+      "--with-zlib=#{Formula.factory('zlib').prefix}",
       "--with-bz2=/usr",
       "--with-ldap",
       "--with-ldap-sasl=/usr",
